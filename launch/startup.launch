@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Starting the simulation containting the environment and the robot -->
+  <include file="$(find mybot_gazebo)/launch/mybot_world.launch"   />
+  
+  <!-- Starting the navigation framework movebase -->
+  <include file="$(find gazebo_ros_test)/launch/navigation.launch" />
+
+  <!-- Starting the mapping based on hector slam  -->
+  <include file="$(find gazebo_ros_test)/launch/mapping.launch"    />
+
+
+  <!-- Starting the visualization -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find gazebo_ros_test)/config/rviz.config.rviz" />
+
+</launch>
